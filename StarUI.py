@@ -37,10 +37,10 @@ def draw_star(a):
     end_fill()
     print(int(p), x)
 
-instructions = '''Ik ga een ster voor je tekenen. Hoeveel punten mag de ster hebben?'''
+instructions = '''I will draw you a star. How many points do you want it to have?'''
 screen = getscreen()
 while True:
-    p_given = screen.numinput('Sterren tekenen', instructions, 7, 3, 150)
+    p_given = screen.numinput('Drawing stars', instructions, 7, 3, 150)
     if p_given < 3:
         break
     else:
@@ -55,6 +55,7 @@ while True:
         draw_star(a)
 
 
+#optional code for saving the screen
 '''
 ts = turtle.getscreen()
 ts.getcanvas().postscript(file="stars55.eps")
