@@ -3,10 +3,11 @@ import turtle
 
 def angle(p_given):
     p = p_given
-    if p == 30 or p == 90:
-        a = 720 / p
-    elif p % 2 == 0:
-        a = 360 / p
+    if p % 2 == 0:
+        if p / 2 % 2 == 0:
+            a = 2 * 180 / p
+        else:
+            a = 4 * 180 / p
     else:
         a = 180 / p
 
@@ -35,7 +36,6 @@ def draw_star(a):
         right(r)
         x = x + 1
     end_fill()
-    print(int(p), x)
 
 instructions = '''I will draw you a star. How many points do you want it to have?'''
 screen = getscreen()
@@ -44,19 +44,6 @@ while True:
     if p_given < 3:
         break
     else:
-        p = p_given
-        if p % 2 == 0:
-            if p / 2 % 2 == 0:
-                a = 2 * 180 / p
-            else:
-                a = 4 * 180 / p
-        else:
-            a = 180 / p
+        a = angle(p_given)
         draw_star(a)
 
-
-#optional code for saving the screen
-'''
-ts = turtle.getscreen()
-ts.getcanvas().postscript(file="stars55.eps")
-'''
